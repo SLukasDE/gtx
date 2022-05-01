@@ -1,6 +1,7 @@
 #include <gtx/PublicKey.h>
 #include <gtx/ec/PublicKey.h>
 #include <gtx/rsa/PublicKey.h>
+//#include <gtx/Logger.h>
 
 #include <vector>
 #include <stdexcept>
@@ -30,6 +31,7 @@ gnutls_sign_algorithm_t getSignAlgorithm(const std::string& algorithmStr) {
 
 	return GNUTLS_SIGN_UNKNOWN;
 }
+//Logger logger("gtx::PublicKey");
 } /* anonymous namespace */
 
 
@@ -134,6 +136,7 @@ bool PublicKey::verifySignature(const std::string& dataStr, const std::string& s
 		throw std::runtime_error("Unknown sign algorithm \"" + algorithmStr + "\"");
 	}
 
+	//logger.debug << "using sign algorithm \"" << algorithmStr << "\"\n.";
 #if 1
 	gnutls_datum_t signature;
 	signature.data = reinterpret_cast<unsigned char*>(const_cast<char*>(signatureStr.c_str()));

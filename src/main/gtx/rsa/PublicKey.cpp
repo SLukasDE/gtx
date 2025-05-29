@@ -1,5 +1,7 @@
 #include <gtx/rsa/PublicKey.h>
 
+#include <stdexcept>
+
 namespace gtx {
 namespace rsa {
 

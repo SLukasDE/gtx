@@ -1,7 +1,7 @@
 include(FetchContent)
 
 message(STATUS "Try to find OpenESL by FetchContent")
-set(OPENESL_USE_COMMON4ESL ON)
+#set(OPENESL_USE_COMMON4ESL OFF)
 FetchContent_Declare(
     openesl
     GIT_REPOSITORY https://github.com/slukasde/OpenESL
@@ -24,5 +24,4 @@ endif (BUILD_SHARED_LIBS)
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} PUBLIC
-    openesl::openesl
-    tinyxml2::tinyxml2)
+    openesl::openesl)

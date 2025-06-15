@@ -22,6 +22,8 @@ else (BUILD_SHARED_LIBS)
     add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC})
 endif (BUILD_SHARED_LIBS)
 
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} PUBLIC
     openesl::openesl)
